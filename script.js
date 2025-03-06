@@ -1,7 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
     const billingTable = document.getElementById('billingTable');
     const addRowBtn = document.getElementById('addRowBtn');
-    const totalBillElement = document.getElementById('totalBill');
+    const generateBillBtn = document.getElementById('generateBillBtn');
+    const calculateFinalAmountBtn = document.getElementById('calculateFinalAmountBtn');
+    const billNumberInput = document.getElementById('billNumber');
+    const rateAmountInput = document.getElementById('rateAmount');
+    const discountInput = document.getElementById('discount');
+    const finalAmountInput = document.getElementById('finalAmount');
+
+    let billNumber = 1;
 
     // Function to calculate the total for a row
     function calculateRowTotal(row) {
@@ -19,7 +26,17 @@ document.addEventListener('DOMContentLoaded', function () {
         rows.forEach(row => {
             totalBill += calculateRowTotal(row);
         });
-        totalBillElement.textContent = totalBill.toFixed(2);
+        rateAmountInput.value = totalBill.toFixed(2);
+        calculateFinalAmount();
+        return totalBill;
+    }
+
+    // Function to calculate the final amount after discount
+    function calculateFinalAmount() {
+        const rateAmount = parseFloat(rateAmountInput.value) || 0;
+        const discount = parseFloat(discountInput.value) || 0;
+        const finalAmount = rateAmount - (rateAmount * discount / 100);
+        finalAmountInput.value = finalAmount.toFixed(2);
     }
 
     // Event listener for input changes
@@ -49,6 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
             updateTotalBill();
         }
     });
+
+    // Event listener for generating a bill
+    generateBillBtn.addEventListener('click', function () {
+        billNumberInput.value = `BILL-${billNumber++}`;
+        updateTotalBill();
+    });
+
+    // Event listener for calculating the final amount
+    calculateFinalAmountBtn.addEventListener('click', calculateFinalAmount);
 
     // Initial calculation
     updateTotalBill();
