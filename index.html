@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desk Billing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Desk Billing System</h1>
+        <table id="billingTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="item" placeholder="Item Name"></td>
+                    <td><input type="number" class="quantity" placeholder="Quantity"></td>
+                    <td><input type="number" class="price" placeholder="Price"></td>
+                    <td><span class="total">0.00</span></td>
+                    <td><button class="removeBtn">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="addRowBtn">Add Row</button>
+        <div class="summary">
+            <h2>Total Bill: <span id="totalBill">0.00</span></h2>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
