@@ -18,9 +18,31 @@ body {
     max-width: 800px;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.customer-details, .billing-section, .payment-section {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 table {
@@ -56,15 +78,12 @@ button.removeBtn {
     background-color: #dc3545;
 }
 
-button#addRowBtn {
+button#addRowBtn, button#generateBillBtn, button#calculateFinalAmountBtn {
     background-color: #007bff;
     margin-bottom: 20px;
 }
 
-.summary {
-    text-align: right;
-}
-
-.summary h2 {
-    margin: 0;
+.payment-section input[readonly] {
+    background-color: #f4f4f4;
+    cursor: not-allowed;
 }
